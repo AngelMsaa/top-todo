@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do App</title>
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="">
+    <script src="index.js"></script>
+    <div id="sidebar">
+        <h2>Todo App</h2>
+        <nav class="projects">
+            <button class=""id="all-projects">
+                All projects
+            </button>
+        </nav>
+    </div>
+    <section class="content">
+        <header>
+            <h1>Project Name</h1>
+            <div class="action-bar" >
+                <button class="button-4" data-action="createTask">
+                    <img src="./assets/add.svg" alt="Add new task">
+                    <span>New task</span>
+                </button>
+            </div>
+            <div class="tasks">
+                <div class="task" id="1" >
+                    <div class="checkbox-wrapper-31">
+                        <input type="checkbox"/>
+                        <svg viewBox="0 0 35.6 35.6">
+                          <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                          <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                          <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                        </svg>
+                      </div>
+                    <div class="task-metadata">
+                        <span class="task-name">
+                            Task 1
+                        </span>
+                        <div class="due-by">
+                            Due by: 
+                            <span class="due-date">
+                                17th October 2024
+                            </span>
+                            <button class="priority button-4 icon-button">
+                                <img class="priority" src="./assets/chevron-up.svg">
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="task" id="1">
+                    <div class="checkbox-wrapper-31">
+                        <input type="checkbox"/>
+                        <svg viewBox="0 0 35.6 35.6">
+                          <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                          <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                          <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                        </svg>
+                      </div>
+                    <div class="task-metadata">
+                        <span class="task-name">
+                            Task 1
+                        </span>
+                        <span class="due-by">Due by: <span class="due-date">17th October 2024</span></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </header>
+        
+    </section>
+</body>
+</html>
