@@ -65,8 +65,8 @@ export class Project {
         this.tasks.push(task);
     }
 
-    deleteTask(task) {
-        this.tasks
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
     }
 
     /**

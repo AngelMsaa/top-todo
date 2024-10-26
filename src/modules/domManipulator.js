@@ -42,12 +42,13 @@ const domManipulator = {
                         </button>
                     </div>
                 </div>
-                <button class="priority button-4 icon-button" data-acion="delete-task">
+                <button class="priority button-4 icon-button" data-action="delete-task">
                     <img class="deleteIcon" src="${deleteIcon}">
                 </button>
         `;
         return taskElement;
     },
+    
 
     /**
      * Adds a task to the DOM.
@@ -59,6 +60,11 @@ const domManipulator = {
 
         const tasksContainerSelector = document.querySelector(".tasks");
         tasksContainerSelector.appendChild(taskElement);
+    },
+
+    removeTask(taskId) {
+        const taskElement = document.getElementById(taskId);
+        taskElement.remove();
     },
 
     /**

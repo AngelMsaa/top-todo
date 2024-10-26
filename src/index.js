@@ -35,7 +35,9 @@ document.addEventListener("click", (event) => {
                     const taskId = taskElement.id;
                     const task = currentProject.getTaskById(taskId);
 
-                    
+                    currentProject.deleteTask(taskId);
+                    domManipulator.removeTask(taskId);
+                    console.log("deleted")
                 }
                 break;
                 
