@@ -18,7 +18,7 @@ export class Task {
     constructor(title = "New Task", dueDate = null, priority = "medium", status = "To Do", completed = false) {
         this._title = title;
         this.dueDate = dueDate;
-        this.priority = priority;
+        this._priority = priority;
         this.status = status;
         this.completed = completed;
         this.createdAt = new Date();
@@ -41,6 +41,22 @@ export class Task {
      */
     get title() {
         return this._title;
+    }
+
+    get priority() {    
+        return this._priority;
+    }
+
+    set priority(priority) {
+        this._priority = priority;
+    }
+
+    changePriority() {
+        const prioritiesList = ["very low", "low", "medium", "high", "very high"];
+        const currentPriorityIndex = prioritiesList.indexOf(this.priority);
+        const newPriorityIndex = (currentPriorityIndex + 1) % 5;
+
+        this.priority = prioritiesList[newPriorityIndex];
     }
 }
 

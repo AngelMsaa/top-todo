@@ -243,6 +243,7 @@ header {
 
 .checkbox-wrapper-31:hover .check {
     stroke-dashoffset: 0;
+    opacity: 1;
 }
 
 .checkbox-wrapper-31 {
@@ -292,8 +293,14 @@ header {
 .checkbox-wrapper-31 input[type=checkbox]:hover {
     cursor: pointer;
 }
+
 .checkbox-wrapper-31 input[type=checkbox]:checked + svg .background {
     fill: #6cbe45;
+    opacity: 0.4;
+}
+.checkbox-wrapper-31 input[type=checkbox]:checked:hover + svg .background {
+    fill: #6cbe45;
+    opacity: 1;
 }
 .checkbox-wrapper-31 input[type=checkbox]:checked + svg .stroke {
     stroke-dashoffset: 0;

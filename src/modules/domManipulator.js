@@ -1,4 +1,8 @@
-import chevronUpIcon from '../assets/chevron-up.svg';
+import arrowUpIcon from '../assets/arrow-up.svg';
+import arrowDownIcon from '../assets/arrow-down.svg';
+import arrowUpDoubleIcon from '../assets/arrow-up-double.svg';
+import arrowDownDoubleIcon from '../assets/arrow-down-double.svg';
+import equalIcon from '../assets/equal.svg';
 import deleteIcon from '../assets/delete.svg';
 
 const domManipulator = {
@@ -19,6 +23,25 @@ const domManipulator = {
         taskElement.className = 'task';
         taskElement.id = task.id;
         const taskTitle = task.title;
+        const priority = task.priority;
+        
+        const getPriorityIcon = () => {
+            if (priority === "very low") {
+                return arrowDownDoubleIcon;
+            } else if (priority === "low") {
+                return arrowDownIcon;
+            } else if (priority === "medium") {
+                return equalIcon;
+            } else if (priority === "high") {
+                return arrowUpIcon;
+            } else if (priority === "very high") {
+                return arrowUpDoubleIcon;
+            }
+        };
+        
+        const priorityIcon = getPriorityIcon();
+
+
         taskElement.innerHTML = `
                 <div class="checkbox-wrapper-31" data-action="change-task-status">
                     <input type="checkbox"/>
@@ -37,8 +60,8 @@ const domManipulator = {
                         <span class="due-date">
                         ${task.dueDate}
                         </span>
-                        <button class="priority button-4 icon-button">
-                            <img class="priority" src="${chevronUpIcon}">
+                        <button class="priority button-4 icon-button" data-action="change-task-priority">
+                            <img class="priority" src="${priorityIcon}">
                         </button>
                     </div>
                 </div>
