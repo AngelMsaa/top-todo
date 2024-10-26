@@ -16,15 +16,29 @@ document.addEventListener("click", (event) => {
                 currentProject.addTask(newTask) // Add task to the current project
                 domManipulator.bindDoubleClickEvent(newTask); //Bind double click event to edit task title on double click
                 break;
-            case "taskCheckboxStatusChange":
-                const taskElement = event.target.closest(".task");
-                const taskId = taskElement.id;
-                const task = currentProject.getTaskById(taskId);
+            case "change-task-status":
+                {
+                    const taskElement = event.target.closest(".task");
+                    const taskId = taskElement.id;
+                    const task = currentProject.getTaskById(taskId);
 
-                console.log(task.completed)
-                task.completed = !task.completed;
-                console.log(task.completed)
+                    task.completed = !task.completed;
+                    const taskTitle = taskElement.querySelector(".task-title");
+
+                    taskTitle.style.textDecoration = task.completed ? "line-through" : "none";
+
+                }
                 break;
+            case "delete-task":
+                { 
+                    const taskElement = event.target.closest(".task");
+                    const taskId = taskElement.id;
+                    const task = currentProject.getTaskById(taskId);
+
+                    
+                }
+                break;
+                
         }
     }
 })

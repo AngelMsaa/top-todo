@@ -1,4 +1,5 @@
-import chevronUp from '../assets/chevron-up.svg';
+import chevronUpIcon from '../assets/chevron-up.svg';
+import deleteIcon from '../assets/delete.svg';
 
 const domManipulator = {
     init() {
@@ -19,28 +20,31 @@ const domManipulator = {
         taskElement.id = task.id;
         const taskTitle = task.title;
         taskElement.innerHTML = `
-            <div class="checkbox-wrapper-31 data-action="taskCheckboxStatusChange">
-            <input type="checkbox"/>
-            <svg viewBox="0 0 35.6 35.6">
-                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
-                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
-                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
-            </svg>
-            </div>
-            <div class="task-metadata">
-            <span class="task-name">
-                ${taskTitle}
-            </span>
-            <div class="due-by">
-                Due by: 
-                <span class="due-date">
-                ${task.dueDate}
-                </span>
-                <button class="priority button-4 icon-button">
-                    <img class="priority" src="${chevronUp}">
+                <div class="checkbox-wrapper-31" data-action="change-task-status">
+                    <input type="checkbox"/>
+                    <svg viewBox="0 0 35.6 35.6">
+                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                    </svg>
+                </div>
+                <div class="task-metadata">
+                    <span class="task-title">
+                        ${taskTitle}
+                    </span>
+                    <div class="due-by">
+                        Due by: 
+                        <span class="due-date">
+                        ${task.dueDate}
+                        </span>
+                        <button class="priority button-4 icon-button">
+                            <img class="priority" src="${chevronUpIcon}">
+                        </button>
+                    </div>
+                </div>
+                <button class="priority button-4 icon-button" data-acion="delete-task">
+                    <img class="deleteIcon" src="${deleteIcon}">
                 </button>
-            </div>
-            </div>
         `;
         return taskElement;
     },
@@ -91,7 +95,7 @@ const domManipulator = {
      */
     doubleClickEditTask(task) {
         const taskElement = document.getElementById(task.id);
-        const taskTitleElement = taskElement.querySelector(".task-name");
+        const taskTitleElement = taskElement.querySelector(".task-title");
 
         taskTitleElement.setAttribute("contenteditable", "true");
         taskTitleElement.focus();
@@ -121,7 +125,7 @@ const domManipulator = {
      */
     bindDoubleClickEvent(task) {
         const taskElement = document.getElementById(task.id);
-        const taskTitleElement = taskElement.querySelector(".task-name");
+        const taskTitleElement = taskElement.querySelector(".task-title");
 
         taskTitleElement.addEventListener("dblclick", () => {
             this.doubleClickEditTask(task);

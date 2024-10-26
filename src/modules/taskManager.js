@@ -1,7 +1,3 @@
-// Purpose: Contains the class for a todo item.
-
-import dom from "./domManipulator.js";
-
 /**
  * Represents a task with various properties such as title, due date, priority, status, and completion status.
  * 
@@ -67,5 +63,22 @@ export class Project {
      */
     addTask(task) {
         this.tasks.push(task);
+    }
+
+    deleteTask(task) {
+        this.tasks
+    }
+
+    /**
+     * 
+     * @param {*} id - The ID of the task to be found and returned.
+     * @returns - a task Object.
+     */
+    getTaskById(id) {
+        for (let i = 0; i < this.tasks.length; i++) {
+            if (this.tasks[i].id === id) {
+                return this.tasks[i];
+            }
+        }
     }
 }
